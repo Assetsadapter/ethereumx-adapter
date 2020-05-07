@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	testApp        = "ethereumx-adapter"
+	testApp        = "ethereum-adapter"
 	configFilePath = filepath.Join("conf")
 )
 
@@ -21,7 +21,7 @@ func testInitWalletManager() *openw.WalletManager {
 	tc.ConfigDir = configFilePath
 	tc.EnableBlockScan = false
 	tc.SupportAssets = []string{
-		"ETH",
+		"ETX",
 	}
 	return openw.NewWalletManager(tc)
 	//tm.Init()
@@ -29,7 +29,7 @@ func testInitWalletManager() *openw.WalletManager {
 
 func TestWalletManager_CreateWallet(t *testing.T) {
 	tm := testInitWalletManager()
-	w := &openwallet.Wallet{Alias: "HELLO ETH", IsTrust: true, Password: "12345678"}
+	w := &openwallet.Wallet{Alias: "HELLO ETX", IsTrust: true, Password: "12345678"}
 	nw, key, err := tm.CreateWallet(testApp, w)
 	if err != nil {
 		log.Error(err)
@@ -75,7 +75,7 @@ func TestWalletManager_CreateAssetsAccount(t *testing.T) {
 	tm := testInitWalletManager()
 
 	walletID := "WBGYxZ6yEX582Mx8mGvygXevdLVc7NQnLM"
-	account := &openwallet.AssetsAccount{Alias: "feesSupport", WalletID: walletID, Required: 1, Symbol: "ETH", IsTrust: true}
+	account := &openwallet.AssetsAccount{Alias: "feesSupport", WalletID: walletID, Required: 1, Symbol: "ETX", IsTrust: true}
 	account, address, err := tm.CreateAssetsAccount(testApp, walletID, "12345678", account, nil)
 	if err != nil {
 		log.Error(err)

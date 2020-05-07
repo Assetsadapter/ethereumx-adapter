@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/blocktree/ethereum-adapter/ethereum"
+	"github.com/Assetsadapter/ethereumx-adapter/ethereumx"
 )
 
 func main()  {
-	fmt.Printf("%s build successfully", ethereum.Symbol)
+	fmt.Printf("%s build successfully", ethereumx.Symbol)
 }
